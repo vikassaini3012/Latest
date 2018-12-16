@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <test name="Test(failed)">
+    <classes>
+      <class name="org_testing_scripts_youtube.TC1">
+        <methods>
+          <include name="testcase1"/>
+          <include name="beformethod"/>
+          <include name="aftermethod"/>
+        </methods>
+      </class> <!-- org_testing_scripts_youtube.TC1 -->
+      <class name="org_testing_scripts_youtube.TC3">
+        <methods>
+          <include name="beformethod"/>
+          <include name="testcase1"/>
+          <include name="aftermethod"/>
+        </methods>
+      </class> <!-- org_testing_scripts_youtube.TC3 -->
+      <class name="org_testing_scripts_youtube.TC2">
+        <methods>
+          <include name="beformethod"/>
+          <include name="testcase2"/>
+          <include name="aftermethod"/>
+        </methods>
+      </class> <!-- org_testing_scripts_youtube.TC2 -->
+    </classes>
+  </test> <!-- Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->
