@@ -18,9 +18,6 @@ public class TC3 extends BasicInfo
 @Test	//Login + Play + Trending
 public void testcase1() throws IOException, Exception
 {
-	//driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-	
-
 		System.out.println(">>>>>>>>>>>>>>>>>>Test Case3 Execution Started---------------");
 //Login	
 			System.out.println(">>>>>>>>>>>>>>>>>>Ready for Login---------------");
@@ -53,16 +50,11 @@ public void testcase1() throws IOException, Exception
 					ScreenShots.takescreenshot(driver, "C:\\Users\\vikassai\\Desktop\\Screenshots\\Like-Unlike_02.png");
 
 //Logout
-		System.out.println(">>>>>>>>>>>>>>>>>>Ready for Logout------------");
-		Logout_page out1 = new Logout_page(driver, pr);
-		out1.signout();
-		System.out.println(">>>>>>>>>>>>>>>>>>Logout Completed---------------");
+					System.out.println(">>>>>>>>>>>>>>>>>>Ready for Logout------------");
+					Logout_page out1 = new Logout_page(driver, pr);
+					out1.signout();
+					System.out.println(">>>>>>>>>>>>>>>>>>Logout Completed---------------");
 
-		
-		
-System.out.println(">>>>>>>>>>>>>>>>>>Test Case3 Executed Successfully---------------");	
-
-	
 		
 
 	}

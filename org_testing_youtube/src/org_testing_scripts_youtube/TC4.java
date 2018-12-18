@@ -1,73 +1,77 @@
 package org_testing_scripts_youtube;
 
-import java.util.concurrent.TimeUnit;
+import java.io.IOException;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
-public class TC4 {
-	
-public ChromeDriver driver;   
+import org_testing_base.BasicInfo;
+import org_testing_pages.Login_page;
+import org_testing_pages.Logout_page;
+import org_testing_utilities.ScreenShots;
 
-@BeforeMethod	//BrowserLaunc + URL hit
-public void beformethod()
+public class TC4 extends BasicInfo
 {
-	System.setProperty("webdriver.chrome.driver","C:\\JavaTraining\\chromedriver_win32\\chromedriver.exe");	
-	driver = new ChromeDriver();
-	driver.get("https://www.youtube.com/");
-	driver.manage().window().maximize();
-	System.out.println("Path---->" + driver.getCurrentUrl());	
-}
+	
+
 @Test	//Login + Trending Click
-public void testcase1()
-{
-	//driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-	
-	//Login process
-		driver.findElementByCssSelector("paper-button[id='button']").click();
-		driver.findElement(By.id("identifierId")).sendKeys("saini.vikas.3012@gmail.com");
-		driver.findElement(By.id("identifierNext")).click();
+	public void testcase1() throws IOException, Exception
+	{
+	System.out.println(">>>>>>>>>>>>>>>>>>Test Case4 Execution Started---------------");
+//Login	
+		System.out.println(">>>>>>>>>>>>>>>>>>Ready for Login---------------");
+		Login_page login1 = new Login_page(driver, pr);
+		login1.signin(pr.getProperty("username"), pr.getProperty("password"));
+		System.out.println(">>>>>>>>>>>>>>>>>>Signup Successful---------------");		
 		
-				driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-	System.out.println("wait is over");
-		driver.findElementByXPath("//input[@name='password']").sendKeys("Vikas123$");
 		
-		//driver.findElement(By.name("password")).sendKeys("Vikas123$");
-		driver.findElement(By.id("passwordNext")).click();
 		
-		//CLICK ON TRENDING
+	////Play video
 		driver.findElementByXPath("//span[text()='Vikas_Nov-2018']").click();
-	
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		
-		//Play video
-		driver.findElementByXPath("//span[contains(text(),'Kar Har Maidaan Fateh')]").click();
+		System.out.println("PlayVideo-->" + driver.getCurrentUrl());
+		Thread.sleep(1500);
+		ScreenShots.takescreenshot(driver, "C:\\Users\\vikassai\\Desktop\\Screenshots\\Playvideopage_01.png");
+		Thread.sleep(3000);
+		driver.findElementByXPath("//yt-formatted-string[contains(text(),'PLAY ALL')]").click();
+	//	driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		System.out.println(driver.getCurrentUrl());
+		System.out.println(">>>>>>>>>>>>>>>>>>Play Video---------------");
+		Thread.sleep(3000);
+		ScreenShots.takescreenshot(driver, "C:\\Users\\vikassai\\Desktop\\Screenshots\\Playvideopage_02.png");
 
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
-		//subscribed channel
-		//driver.findElementByXPath("//paper-button[@aria-label='Unsubscribe from T-Series.']").click();
-		//driver.findElementByXPath("//paper-button[@aria-label='Subscribe to T-Series.']").click();
+				
+//subscription video
+	Thread.sleep(1000);
+	ScreenShots.takescreenshot(driver, "C:\\Users\\vikassai\\Desktop\\Screenshots\\subscription_01.png");
+	WebElement sub = driver.findElementByXPath("//paper-button[contains(@aria-label,'Subscribe to')]");
+	sub.click();
 	
-		//driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	System.out.println(">>>>>>>>>>>>>>>>>>subscription Video---------------");
+	Thread.sleep(1500);
+	ScreenShots.takescreenshot(driver, "C:\\Users\\vikassai\\Desktop\\Screenshots\\subscription_02.png");
+	
+	
+	Thread.sleep(1500);
+	WebElement sub2 = driver.findElementByXPath("//paper-button[contains(@aria-label,'Unsubscribe from')]");
+	sub2.click();
+	Thread.sleep(1500);
+	ScreenShots.takescreenshot(driver, "C:\\Users\\vikassai\\Desktop\\Screenshots\\subscription_03.png");	
+	
+//alert
+	WebElement agg = driver.findElementByXPath("//yt-button-renderer[@id='confirm-button']");
+	Thread.sleep(1500);
+	ScreenShots.takescreenshot(driver, "C:\\Users\\vikassai\\Desktop\\Screenshots\\subscription_04.png");
+	agg.click();
+	Thread.sleep(1500);
+	ScreenShots.takescreenshot(driver, "C:\\Users\\vikassai\\Desktop\\Screenshots\\subscription_05.png");
+
+//Logout
+System.out.println(">>>>>>>>>>>>>>>>>>Ready for Logout------------");
+Logout_page out1 = new Logout_page(driver, pr);
+out1.signout();
+System.out.println(">>>>>>>>>>>>>>>>>>Logout Completed---------------");
 		
-		//driver.findElementByXPath("//yt-button-renderer[@class = 'style-scope ytd-subscribe-button-renderer']").click();
-		
-		driver.findElementByXPath("//yt-formatted-string[contains(text(),'Subscribe')]").click();
-		
+//paper-button   ///aria-label--> Subscribe to T-Series.
 	
 	}
-
-@AfterMethod 	//browser close
-public void aftermethod()
-{
-	//driver.close();
-	System.out.println("End of Flow");
-	
-
-}	
-
 }

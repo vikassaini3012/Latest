@@ -6,6 +6,7 @@ import org_testing_utilities.ScreenShots;
 
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 
@@ -46,13 +47,27 @@ public void testing() throws Throwable
 				ScreenShots.takescreenshot(driver, "C:\\Users\\vikassai\\Desktop\\Screenshots\\Playvideopage_02.png");
 
 			
-	//Like-Unlike video
-			ScreenShots.takescreenshot(driver, "C:\\Users\\vikassai\\Desktop\\Screenshots\\Like-Unlike_01.png");
-			driver.findElementByXPath("//button[contains(@aria-label,'like this video')]").click();
-			System.out.println(">>>>>>>>>>>>>>>>>>Like-Unlike Video---------------");
-			ScreenShots.takescreenshot(driver, "C:\\Users\\vikassai\\Desktop\\Screenshots\\Like-Unlike_02.png");
-		}
+//subscription video
+				Thread.sleep(1000);
+				ScreenShots.takescreenshot(driver, "C:\\Users\\vikassai\\Desktop\\Screenshots\\subscription_01.png");
+//				driver.findElementByXPath("//div[@id='subscribe-button']").click();
+				
+				//WebElement sub = driver.findElementByXPath("//paper-button[@aria-label='Subscribe to T-Series.']");
+			
+				//WebElement sub = driver.findElementByXPath("//paper-button[contains(@aria-label,'Subscribe to')]");
+				//sub.click();
+				
+				
+				WebElement sub = driver.findElementByXPath("//paper-button[contains(@aria-label,'Unsubscribe from')]");
+				sub.click();
+				
+				
+//alert
+				WebElement agg = driver.findElementByXPath("//yt-button-renderer[@id='confirm-button']");
+				agg.click();
+				
 
+}
 }
 
 
