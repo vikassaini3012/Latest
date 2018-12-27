@@ -3,6 +3,8 @@ package org_testing_scripts_youtube;
 
 
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.Test;
 import org_testing_base.BasicInfo;
 import org_testing_pages.Login_page;
@@ -37,16 +39,31 @@ public class TC1 extends BasicInfo
 		trend.click();
 		Thread.sleep(1500);
 		ScreenShots.takescreenshot(driver, "C:\\Users\\vikassai\\Desktop\\Screenshots\\TrendingPage_02.png");
-		//		Logs.get_logs("TC1", "Trending Page Completed");	
-
+	
 		Logs.take_log("TC1","Trending Succesfful");
+
+		
+		
+//Alert
+			
+					
+				/*	ChromeOptions ops = new ChromeOptions();
+		            ops.addArguments("--disable-notifications");
+		            System.setProperty("webdriver.chrome.driver", "./lib/chromedriver");
+		            driver = new ChromeDriver(ops);	*/	
+		
+		
+					Thread.sleep(2500);	
+		
 //Logout
 			System.out.println(">>>>>>>>>>>>>>>>>>Ready for Logout------------");
 			Logout_page out1 = new Logout_page(driver, pr);
 			out1.signout();
 			System.out.println(">>>>>>>>>>>>>>>>>>Logout Completed---------------");
 
+
 			
+
 			
 		System.out.println(">>>>>>>>>>>>>>>>>>Test Case1 Executed Successfully---------------");	
 	}

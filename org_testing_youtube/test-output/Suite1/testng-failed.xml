@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite1]">
+  <test name="Command line test cecc2d89-1770-4d34-b3d5-5fef49dcfc47(failed)">
+    <classes>
+      <class name="org_testing_scripts_youtube.TC1">
+        <methods>
+          <include name="testcase1"/>
+          <include name="beformethod"/>
+          <include name="aftermethod"/>
+        </methods>
+      </class> <!-- org_testing_scripts_youtube.TC1 -->
+      <class name="org_testing_scripts_youtube.TC2">
+        <methods>
+          <include name="beformethod"/>
+          <include name="testcase2"/>
+          <include name="aftermethod"/>
+        </methods>
+      </class> <!-- org_testing_scripts_youtube.TC2 -->
+    </classes>
+  </test> <!-- Command line test cecc2d89-1770-4d34-b3d5-5fef49dcfc47(failed) -->
+</suite> <!-- Failed suite [Suite1] -->
